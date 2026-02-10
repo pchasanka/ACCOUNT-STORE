@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | ZAKU ACCOUNT STORE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Config for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#FFD700',
+                        orange: '#FF4500',
+                        dark: '#0f0f0f',
+                        darker: '#050505',
+                        card: '#1a1a1a'
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-darker text-white antialiased">
+    <!-- Loader -->
+    <div id="loader" class="loader-container">
+        <div class="flex flex-col items-center gap-4">
+            <span class="loader"></span>
+            <h2 class="text-xl font-orbitron text-gold tracking-widest">LOADING SHOP...</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 animate-pulse">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <i class="fa-solid fa-fire text-3xl text-orange"></i>
+                        <span class="font-orbitron font-bold text-2xl tracking-wider text-white">ZAKU <span
+                                class="text-gold">STORE</span></span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html"
+                            class="font-rajdhani font-semibold text-lg text-gray-300 hover:text-white hover:border-b-2 hover:border-orange px-3 py-2 transition-all">Home</a>
+                        <a href="shop.html"
+                            class="font-rajdhani font-semibold text-lg text-gold border-b-2 border-gold px-3 py-2 transition-all">Shop
+                            Accounts</a>
+                        <a href="contact.html"
+                            class="font-rajdhani font-semibold text-lg text-gray-300 hover:text-white hover:border-b-2 hover:border-orange px-3 py-2 transition-all">Contact
+                            Us</a>
+                        <a href="login.html"
+                            class="px-5 py-2 bg-white/10 border border-white/20 rounded-full font-rajdhani font-bold hover:bg-gold hover:text-black hover:border-gold transition-all text-sm">LOGIN</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-btn" type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 transition-all">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden bg-black/95 backdrop-blur-xl absolute w-full border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-4 rounded-md text-base font-medium transition-all">Home</a>
+                <a href="shop.html"
+                    class="text-gold block px-3 py-4 rounded-md text-base font-medium border-l-4 border-gold bg-white/5">Shop
+                    Accounts</a>
+                <a href="contact.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-4 rounded-md text-base font-medium transition-all">Contact
+                    Us</a>
+                <a href="login.html"
+                    class="text-gold hover:text-white hover:bg-white/5 block px-3 py-4 rounded-md text-base font-bold transition-all border-t border-white/10 mt-2">LOGIN
+                    ACCOUNT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="pt-32 pb-12 bg-[#0a0a0a] border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-orbitron font-bold text-white mb-4">AVAILABLE <span
+                    class="text-gradient-fire">ACCOUNTS</span></h1>
+            <p class="text-gray-400 font-rajdhani text-lg max-w-2xl mx-auto">Browse our collection of verified Free Fire
+                accounts. Use filters to find exactly what you're looking for.</p>
+        </div>
+    </header>
+
+    <!-- Shop Content -->
+    <section class="py-12 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filters Sidebar -->
+                <aside class="w-full lg:w-1/4">
+                    <div class="glass-panel p-6 rounded-xl sticky top-24">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-orbitron font-bold text-white">FILTERS</h3>
+                            <button id="reset-filters"
+                                class="text-xs text-orange hover:text-white uppercase font-bold tracking-wider">Reset</button>
+                        </div>
+
+                        <!-- Search -->
+                        <div class="mb-8">
+                            <label
+                                class="block text-sm font-rajdhani font-bold text-gray-400 mb-2 uppercase">Search</label>
+                            <div class="relative">
+                                <input type="text" id="search-input" placeholder="Search keywords..."
+                                    class="w-full bg-black/50 border border-white/10 rounded-lg py-2 px-4 text-white focus:outline-none focus:border-gold font-rajdhani">
+                                <i class="fa-solid fa-search absolute right-3 top-3 text-gray-500"></i>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div class="mb-8">
+                            <label class="block text-sm font-rajdhani font-bold text-gray-400 mb-2 uppercase">Max
+                                Price</label>
+                            <input type="range" min="1000" max="100000" value="100000"
+                                class="w-full accent-gold h-1 bg-gray-700 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-xs text-gray-500 mt-2 font-rajdhani">
+                                <span>Rs. 1k</span>
+                                <span>Rs. 100k+</span>
+                            </div>
+                        </div>
+
+                        <!-- Categories -->
+                        <div class="mb-6">
+                            <label
+                                class="block text-sm font-rajdhani font-bold text-gray-400 mb-3 uppercase">Categories</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-2 cursor-pointer group">
+                                    <input type="checkbox"
+                                        class="form-checkbox text-gold rounded focus:ring-0 bg-white/10 border-white/20">
+                                    <span class="text-gray-300 group-hover:text-white font-rajdhani">Old IDs</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer group">
+                                    <input type="checkbox"
+                                        class="form-checkbox text-gold rounded focus:ring-0 bg-white/10 border-white/20">
+                                    <span class="text-gray-300 group-hover:text-white font-rajdhani">Max Evo Guns</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer group">
+                                    <input type="checkbox"
+                                        class="form-checkbox text-gold rounded focus:ring-0 bg-white/10 border-white/20">
+                                    <span class="text-gray-300 group-hover:text-white font-rajdhani">Rare Bundles</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Product Grid -->
+                <main class="w-full lg:w-3/4">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-gray-400 font-rajdhani" id="products-count">Showing all accounts</span>
+                        <div class="relative">
+                            <select
+                                class="bg-black/50 border border-white/10 rounded-lg py-2 pl-4 pr-8 text-white focus:outline-none focus:border-gold font-rajdhani appearance-none">
+                                <option>Newest First</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                            </select>
+                            <i
+                                class="fa-solid fa-chevron-down absolute right-3 top-3 text-gray-500 text-xs pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <div id="shop-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Products will be loaded via JS -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-fire text-2xl text-orange"></i>
+                        <span class="font-orbitron font-bold text-xl text-white">ZAKU <span
+                                class="text-gold">STORE</span></span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-6">
+                        The ultimate destination for premium Free Fire accounts in Sri Lanka. Trusted, Secure, and Fast.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold transition-colors"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition-colors"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition-colors"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron font-bold text-white mb-6">QUICK LINKS</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="shop.html" class="hover:text-gold transition-colors">Browse Accounts</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Sell Your Account</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron font-bold text-white mb-6">LEGAL</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-gold transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron font-bold text-white mb-6">CONTACT</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone text-gold mt-1"></i>
+                            <div class="flex flex-col">
+                                <span class="text-white">Hasanka</span>
+                                <a href="tel:+94760618217">+94 76 061 8217</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone text-gold mt-1"></i>
+                            <div class="flex flex-col">
+                                <span class="text-white">Kaviya</span>
+                                <a href="tel:+94726114480">+94 72 611 4480</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-sm">© 2026 Zaku Account Store. All rights reserved.</p>
+                <p class="text-gray-600 text-sm">Designed with <i class="fa-solid fa-heart text-red-600"></i> by
+                    Antigravity</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
